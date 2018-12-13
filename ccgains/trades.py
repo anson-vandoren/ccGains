@@ -268,8 +268,6 @@ class Trade(object):
                 raise ValueError(
                         'fee_currency must match either buy_currency or '
                         'sell_currency')
-            else:
-                log.warning('fee_currency is BNB, not either buy or sell currency')
 
     def to_csv_line(self, delimiter=', ', endl='\n'):
         strings = []
