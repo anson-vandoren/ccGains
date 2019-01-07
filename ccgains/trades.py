@@ -23,6 +23,7 @@
 #
 # Get the latest version at: https://github.com/probstj/ccGains
 #
+from typing import List
 
 import pandas as pd
 from decimal import Decimal
@@ -364,9 +365,11 @@ class Trade(object):
         if (self.feeval > 0
                 and self.feecur != buy_currency
                 and self.feecur != sell_currency):
-            raise ValueError(
-                    'fee_currency must match either buy_currency or '
-                    'sell_currency')
+            if self.feecur != 'BNB':
+                print(self.feecur)
+                raise ValueError(
+                        'fee_currency must match either buy_currency or '
+                        'sell_currency')
 
     def to_csv_line(self, delimiter=', ', endl='\n'):
         strings = []
@@ -411,7 +414,7 @@ class TradeHistory(object):
 
             self.tlist is a sorted list of trades available after
             some trades have been imported."""
-        self.tlist = []
+        self.tlist: List[Trade] = []
 
     def __getitem__(self, item):
         return self.tlist[item]
