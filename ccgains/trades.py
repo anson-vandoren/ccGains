@@ -23,7 +23,6 @@
 #
 # Get the latest version at: https://github.com/probstj/ccGains
 #
-from typing import List
 
 import pandas as pd
 from decimal import Decimal
@@ -414,7 +413,7 @@ class TradeHistory(object):
 
             self.tlist is a sorted list of trades available after
             some trades have been imported."""
-        self.tlist: List[Trade] = []
+        self.tlist = []
 
     def __getitem__(self, item):
         return self.tlist[item]

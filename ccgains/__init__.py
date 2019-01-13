@@ -25,9 +25,10 @@
 #
 
 import logging
+
 logging.getLogger(__name__).addHandler(logging.NullHandler())
 
-from .historic_data import HistoricDataAPI, HistoricDataCSV, HistoricDataAPIBinance
+from .historic_data import HistoricDataAPI, HistoricDataCSV, HistoricDataAPIBinance, HistoricDataAPICoinbase
 from .relations import CurrencyRelation
 from .trades import Trade, TradeHistory
 from .bags import Bag, BagFIFO
